@@ -28,8 +28,7 @@ def checkEvents(setting, screen, stats, sb, playBtn, quitBtn, sel, ship, aliens,
 					pauseBtnState += 1
 					sel.rect.y += 50	
 
-			elif event.key == pg.K_RETURN:
-				if pauseBtnState == 1:
+			elif event.key == pg.K_RETURN:				if pauseBtnState == 1:
 					checkPlayBtn(setting, screen, stats, sb, playBtn, sel, ship, aliens, bullets, eBullets)
 				elif pauseBtnState == 2:
 					stats.mainGame = False
@@ -55,7 +54,7 @@ def checkKeydownEvents(event, setting, screen, stats, sb, playBtn, quitBtn, sel,
 	elif event.key == pg.K_LEFT:
 		#Move the ship left
 		ship.movingLeft = True
-	elif event.key == pg.K_LCTRL:
+	elif event.key == pg.K_SPACEBAR:
 		newBullet = Bullet(setting, screen, ship)
 		bullets.add(newBullet)
 	#Check for pause key
