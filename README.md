@@ -5,6 +5,7 @@
 | Jeongkyu Shin | Instructor |     |
 | Jaewoo Yang   | Student    |     |
 | JK            | Student    |     |
+| Kim Dain      | Student    |     |
 | JK2           | Student    |     |
 
 # Galtron
