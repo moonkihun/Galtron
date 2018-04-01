@@ -10,8 +10,14 @@ class Settings():
 		self.bgColor = (20, 20, 20)
 		self.bg = pg.image.load("gfx/background.bmp")
 
+		#Ultimate settings
+		self.ultimateGaugeIncrement = 3
+
+		self.image = pg.image.load("gfx/background2.png")
+		self.image = pg.transform.scale(self.image,(self.screenWidth,self.screenHeight))
+		self.bg = self.image
 		#Ships speed
-		self.shipLimit = 3
+		self.shipLimit = 5
 
 		#Bullet settings
 		self.bulletWidth = 3
