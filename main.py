@@ -6,9 +6,11 @@ import about as About
 import gameFunctions as gf  # Event checker and update screen
 import intro  # intro video making
 import mainMenu as mm  # Main menu
+import levelMenu as lm  # select game level(hard/easy)
 import playMenu as pm  # choosing ship color
 import settingsMenu as sm
 import twoPlayer as tp  # two player mode
+import sounds
 from animations import Explosions
 from buttonMenu import ButtonMenu
 from background import BackgroundManager
@@ -17,7 +19,6 @@ from scoreboard import Scoreboard  # Score board for points, high score, lives, 
 # import self made classes
 from settings import Settings
 from ship import Ship
-
 
 def runGame():
     # Initialize game and create a window
@@ -45,9 +46,12 @@ def runGame():
     bMenu.addButton("red", "RED")
     bMenu.addButton("blue", "BLUE")
     bMenu.addButton("retry", "RETRY")
+    bMenu.addButton("hard", "HARD")
+    bMenu.addButton("normal", "NORMAL")
 
     mainMenuButtons = ["play", "about", "settings", "quit"] # delete "twoPlay"
     playMenuButtons = ["grey", "red", "blue", "menu", "quit"]
+    levelMenuButtons = ["hard", "normal", "quit"]
     mainGameButtons = ["play", "menu", "quit"]
     aboutButtons = ["menu", "quit"]
     settingsMenuButtons = ["menu", "invert", "quit"]
@@ -67,6 +71,9 @@ def runGame():
     # Ships for two player
     ship1 = Ship(setting, screen)
     ship2 = Ship(setting, screen)
+
+    #make a group of items to store
+    items = Group()
 
     # make a group of bullets to store
     bullets = Group()
@@ -88,19 +95,39 @@ def runGame():
     aboutImageRect = aboutImage.get_rect()
 
     # plays bgm
-    pg.mixer.music.load("sound_bgms/galtron.mp3")
+    pg.mixer.music.load('sound_bgms/galtron.mp3')
     pg.mixer.music.set_volume(0.25)
     pg.mixer.music.play(-1)
 
     rungame = True
 
+    sounds.stage_clear.play()
     # Set the two while loops to start mainMenu first
     while rungame:
         # Set to true to run main game loop
         bMenu.setMenuButtons(mainMenuButtons)
         while stats.mainMenu:
+            if not stats.gameActive and stats.paused:
+                setting.initDynamicSettings()
+                stats.resetStats()
+                ##stats.gameActive = True
+
+                # Reset the alien and the bullets
+                aliens.empty()
+                bullets.empty()
+                eBullets.empty()
+
+                # Create a new fleet and center the ship
+                gf.createFleet(setting, stats, screen, ship, aliens)
+                ship.centerShip()
+
             mm.checkEvents(setting, screen, stats, sb, bMenu, ship, aliens, bullets, eBullets)
             mm.drawMenu(setting, screen, sb, bMenu, bgImage, bgImageRect)
+
+        bMenu.setMenuButtons(levelMenuButtons)
+        while stats.levelMenu:
+            lm.checkEvents(setting, screen, stats, sb, bMenu, ship, aliens, bullets, eBullets)
+            lm.drawMenu(setting, screen, sb, bMenu, bgImage, bgImageRect)
 
         bMenu.setMenuButtons(playMenuButtons)
         while stats.playMenu:
@@ -118,10 +145,11 @@ def runGame():
                 pg.register_quit(runGame())
             if stats.gameActive:
                 gf.updateAliens(setting, stats, sb, screen, ship, aliens, bullets, eBullets)  # Update aliens
-                gf.updateBullets(setting, screen, stats, sb, ship, aliens, bullets, eBullets, charged_bullets)  # Update collisions
+                gf.updateBullets(setting, screen, stats, sb, ship, aliens, bullets, eBullets, charged_bullets, items) # Update collisions
+                gf.updateItems(setting, screen, stats, sb, ship, aliens, bullets, eBullets, items)
                 ship.update(bullets, aliens)  # update the ship
                 # Update the screen
-            gf.updateScreen(setting, screen, stats, sb, ship, aliens, bullets, eBullets, charged_bullets, bMenu, bgManager)
+            gf.updateScreen(setting, screen, stats, sb, ship, aliens, bullets, eBullets, charged_bullets, bMenu, bgManager, items)
 
         bMenu.setMenuButtons(aboutButtons)
         bMenu.setPos(None, 500)
@@ -135,8 +163,8 @@ def runGame():
             if stats.gameActive:
                 ship1.update(bullets, aliens)
                 ship2.update(bullets, aliens)
-                tp.updateBullets(setting, screen, stats, sb, ship1, ship2, aliens, bullets, eBullets)
-            tp.updateScreen(setting, screen, stats, sb, ship1, ship2, aliens, bullets, eBullets, bMenu)
+                tp.updateBullets(setting, screen, stats, sb, ship1, ship2, aliens, bullets, eBullets, items)
+            tp.updateScreen(setting, screen, stats, sb, ship1, ship2, aliens, bullets, eBullets, bMenu, items)
 
         bMenu.setMenuButtons(settingsMenuButtons)
 
