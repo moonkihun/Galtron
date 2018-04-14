@@ -15,8 +15,11 @@
 | Jinsung An    | Student    |     |
 | Minwoo Son	  | Student    |     |
 | Kim Dain      | Student    |     |
+| Jeongin Lee   | Student    |     |
+| Minwoo Son	  | Student    |     |
 | Jeongin Lee   | Student.   |     |
 | Minwoo Son.   | Student    |     |
+>>>>>>> f2eb221076cc84b1d07159d10dff213e8c48bf14
 =======
 | Jeongin Lee   | Student.   |     |
 | Minwoo Son.   | Student    |     |
