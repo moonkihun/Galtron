@@ -59,7 +59,7 @@ def runGame():
     bMenu.addButton("loud","LOUD")
     bMenu.addButton("low","LOW")
 =======
-    
+
 >>>>>>> 78ecfa2143bfd3ecfc66c1265fc3edf149138738
     mainMenuButtons = ["play", "about", "settings", "quit"] # delete "twoPlay"
     playMenuButtons = ["grey", "red", "blue", "menu", "quit"]
@@ -70,13 +70,13 @@ def runGame():
 <<<<<<< HEAD
     settingsMenuButtons = ["menu", "invert","speed setting","sound","quit"]
     speedButtons = ["fast","middle","slow","menu"]
-                
+
     soundButtons =["loud","low","menu"]
 =======
     settingsMenuButtons = ["menu", "invert","speed setting","quit"]
     speedButtons = ["fast","middle","slow"]
 >>>>>>> 78ecfa2143bfd3ecfc66c1265fc3edf149138738
-    
+
     bgManager = BackgroundManager(screen)
     bgManager.setFillColor((0, 0, 0))
     bgManager.addBackground("universe_1", "gfx/backgrounds/stars_back.png", 0, 1)
