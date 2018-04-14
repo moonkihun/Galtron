@@ -449,7 +449,7 @@ def checkBulletAlienCol(setting, screen, stats, sb, ship, aliens, bullets, eBull
     collisions.update(pg.sprite.groupcollide(aliens, charged_bullets, False, False))
     if collisions:
         sounds.enemy_behitted_sound.play()
-        sounds.enemy_explosion_sound.play()
+        
 
         for alien in collisions :
             #charged_bullet bgManager
@@ -474,7 +474,7 @@ def checkBulletAlienCol(setting, screen, stats, sb, ship, aliens, bullets, eBull
                     createItem(setting, screen, stats, alien.rect.x, alien.rect.y, 3, items)
                 if setting.probabilityHeal+setting.probabilityTime+setting.probabilityShield<i<=setting.probabilityHeal+setting.probabilityTime+setting.probabilityShield+setting.probabilitySpeed:
                     createItem(setting, screen, stats, alien.rect.x, alien.rect.y, 4, items)
-
+                sounds.enemy_explosion_sound.play()
                 aliens.remove(alien)
 
         # Increase the ultimate gauge, upto 100
