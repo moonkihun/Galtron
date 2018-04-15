@@ -65,10 +65,7 @@ def buttonAction(stats, selectedName, bMenu, setting, sb):
     elif selectedName == 'speed setting':
         stats.setGameLoop('speedMenu')
 
-   
-
-
-
+        
 def drawMenu(setting, screen, sb, bMenu):
     """Draw the menu and all of its elements"""
     global image, rect
