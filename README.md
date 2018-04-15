@@ -3,7 +3,8 @@
 
 
 | Participant   | Role       | ETC |
-|---------------|------------|-----|
+|===============|============|=====|
+| Jeongkyu Shin | Instructor |     |
 | Jeongkyu Shin | Instructor |     |
 | Lee jaehee    | student    |     |
 | Minseok  Kang | Student    |     |
@@ -12,10 +13,17 @@
 | Jaewoo Yang   | Student    |     |
 | Cho young il  | Student    |     |
 | Jinsung An    | Student    |     |
-| Minwoo Son	| Student    |     |
+| Minwoo Son	  | Student    |     |
 | Kim Dain      | Student    |     |
+| Jeongin Lee   | Student    |     |
+| Minwoo Son	  | Student    |     |
+| Jeongin Lee   | Student.   |     |
+| Minwoo Son.   | Student    |     |
+>>>>>>> f2eb221076cc84b1d07159d10dff213e8c48bf14
+=======
 | Jeongin Lee   | Student.   |     |
 | Minwoo Son.   | Student    |     |
+>>>>>>> b4c5cc443aaefe6df257f5b363d3427096b05c7c
 | Kim Dain      | Student    |     |
 | Jeongin Lee   | Student    |     |
 | YK            | Student    |     |

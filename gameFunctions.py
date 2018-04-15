@@ -5,8 +5,21 @@ import pygame as pg
 import sounds
 from time import sleep
 from alien import Alien
+<<<<<<< HEAD
+<<<<<<< HEAD
+import random
+=======
+from settings import Settings
+import random
+
+>>>>>>> f2eb221076cc84b1d07159d10dff213e8c48bf14
+
+pauseBtnState = 1
+back = False
+=======
 from bullet import Bullet, SpecialBullet
 from item import Item
+>>>>>>> b4c5cc443aaefe6df257f5b363d3427096b05c7c
 
 clock = pg.time.Clock()
 FPS = 120
@@ -337,12 +350,16 @@ def updateInvincibility(setting, screen, ship):
     if pg.time.get_ticks() - setting.newStartTime < setting.invincibileTime:
         if pg.time.get_ticks()%2 == 1:
             isurf = pg.Surface((ship.images[ship.imgCenter].get_rect().width,ship.images[ship.imgCenter].get_rect().height))
+            shieldimg = pg.image.load('gfx/spr_shield.png')
             isurf.set_alpha(150)
             screen.blit(isurf, (ship.rect.x, ship.rect.y))
+            screen.blit(shieldimg, (ship.rect.x-13, ship.rect.y))
         else:
             isurf = pg.Surface((ship.images[ship.imgCenter].get_rect().width,ship.images[ship.imgCenter].get_rect().height))
+            shieldimg = pg.image.load('gfx/spr_shield.png')
             isurf.set_alpha(200)
             screen.blit(isurf, (ship.rect.x, ship.rect.y))
+            screen.blit(shieldimg, (ship.rect.x-13, ship.rect.y))
 
 def updateAliens(setting, stats, sb, screen, ship, aliens, bullets, eBullets):
     """Update the aliens"""
