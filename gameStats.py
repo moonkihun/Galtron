@@ -16,18 +16,12 @@ class GameStats():
         self.playMenu = False
         self.twoPlayer = False
         self.settingsMenu = False
-        #############
-        self.levelMenu = False
-        self.speedMenu = False
         self.paused = False
         self.score = 0
         self.level = 1
         self.highScore = 0
         self.highScoreSaveFileName = 'data-files/highscore.json'
         self.resetStats()
-
-        #########
-        # self.gameLevel = 0
 
     def setGameLoop(self, loop):
         self.mainMenu = False
@@ -36,9 +30,6 @@ class GameStats():
         self.playMenu = False
         self.twoPlayer = False
         self.settingsMenu = False
-        ###########
-        self.levelMenu = False
-        self.speedMenu = False
 
         if loop == 'mainMenu':
             self.mainMenu = True
@@ -52,11 +43,6 @@ class GameStats():
             self.twoPlayer = True
         elif loop == 'settingsMenu':
             self.settingsMenu = True
-        ###################
-        elif loop == 'levelMenu':
-            self.levelMenu = True
-        elif loop == 'speedMenu':
-            self.speedMenu = True    
 
     def resetStats(self):
         """initialize statistics that can change during the game"""
