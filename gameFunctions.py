@@ -473,8 +473,7 @@ def checkBulletAlienCol(setting, screen, stats, sb, ship, aliens, bullets, eBull
                     createItem(setting, screen, stats, alien.rect.x, alien.rect.y, 3, items)
                 if setting.probabilityHeal+setting.probabilityTime+setting.probabilityShield<i<=setting.probabilityHeal+setting.probabilityTime+setting.probabilityShield+setting.probabilitySpeed:
                     createItem(setting, screen, stats, alien.rect.x, alien.rect.y, 4, items)
-          
-            aliens.remove(alien)
+                aliens.remove(alien)
                
 
         # Increase the ultimate gauge, upto 100
