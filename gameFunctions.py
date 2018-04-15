@@ -416,9 +416,6 @@ def updateItems(setting, screen, stats, sb, ship, aliens, bullets, eBullets, ite
                     setting.alienSpeed *= 0.5
                     setting.alienbulletSpeed *= 0.5
                     setting.fleetDropSpeed *= 0.5
-
-                    sounds.slowdown_sound.play()
-
                     sounds.slow_sound.play(-1)
 
             elif item.type == 3:
@@ -436,9 +433,6 @@ def updateSlowtime(setting):
             setting.alienbulletSpeed *= 2
             setting.fleetDropSpeed *= 2
             setting.newItemSlowTime = 0
-
-            sounds.slowdown_sound.stop()
-
             sounds.slow_sound.stop()
 
 
@@ -449,15 +443,13 @@ def updateSpeedtime(setting):
             setting.newItemSpeedTime = 0
 
 
-
 def checkBulletAlienCol(setting, screen, stats, sb, ship, aliens, bullets, eBullets, charged_bullets, items):
     """Detect collisions between alien and bullets"""
     global boss
     collisions = pg.sprite.groupcollide(aliens, bullets, False, False)
     collisions.update(pg.sprite.groupcollide(aliens, charged_bullets, False, False))
     if collisions:
-        sounds.enemy_behitted_sound.play()
-        
+        sounds.enemy_damaged_sound.play()  
 
         for alien in collisions :
             #charged_bullet bgManager
@@ -482,7 +474,6 @@ def checkBulletAlienCol(setting, screen, stats, sb, ship, aliens, bullets, eBull
                     createItem(setting, screen, stats, alien.rect.x, alien.rect.y, 3, items)
                 if setting.probabilityHeal+setting.probabilityTime+setting.probabilityShield<i<=setting.probabilityHeal+setting.probabilityTime+setting.probabilityShield+setting.probabilitySpeed:
                     createItem(setting, screen, stats, alien.rect.x, alien.rect.y, 4, items)
-                sounds.enemy_explosion_sound.play()
                 aliens.remove(alien)
 
         # Increase the ultimate gauge, upto 100
