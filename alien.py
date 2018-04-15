@@ -20,6 +20,7 @@ class Alien(Sprite):
         self.sprite = AnimatedSprite(
             pg.image.load('gfx/spaceship4_sprite.png').convert_alpha(),
             40, 40, 13)
+      
         self.image = self.sprite.getFrame(0)
         self.image = pg.transform.rotate(self.image, 180)
         if self.isboss == True:
