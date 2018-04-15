@@ -64,7 +64,10 @@ def buttonAction(stats, selectedName, bMenu, setting, sb):
         sys.exit()
     elif selectedName == 'speed setting':
         stats.setGameLoop('speedMenu')
+<<<<<<< HEAD
    
+=======
+>>>>>>> 6e986279722df1cac50d0f1d49660582755f848f
 
 def drawMenu(setting, screen, sb, bMenu):
     """Draw the menu and all of its elements"""
