@@ -68,16 +68,15 @@ def runGame():
     speedButtons = ["fast","middle","slow","menu"]
 
     soundButtons =["loud","low","menu"]
-<<<<<<< HEAD
     settingsMenuButtons = ["menu", "invert","speed setting","quit"]
     speedButtons = ["fast","middle","slow"]
-=======
->>>>>>> 5dc3e8a29c487904e9840923b1cad39d4d476d55
+    settingsMenuButtons = ["menu", "invert","speed setting","quit"]
+    speedButtons = ["fast","middle","slow"]
     settingsMenuButtons = ["menu", "invert","speed setting","quit"]
     speedButtons = ["fast","middle","slow"]
     settingsMenuButtons = ["menu", "invert","speed setting","quit"]
     speedButtons = ["fast","middle","slow","menu"]
-    
+
     bgManager = BackgroundManager(screen)
     bgManager.setFillColor((0, 0, 0))
     bgManager.addBackground("universe_1", "gfx/backgrounds/stars_back.png", 0, 1)

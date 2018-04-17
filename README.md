@@ -1,4 +1,4 @@
-﻿# Learning OSS development through GitHub
+# Learning OSS development through GitHub
 
 
 
@@ -19,11 +19,10 @@
 | Minwoo Son	  | Student    |     |
 | Jeongin Lee   | Student.   |     |
 | Minwoo Son.   | Student    |     |
-<<<<<<< HEAD
 | Jeongin Lee   | Student.   |     |
 | Minwoo Son.   | Student    |     |
-=======
->>>>>>> 5dc3e8a29c487904e9840923b1cad39d4d476d55
+| Jeongin Lee   | Student.   |     |
+| Minwoo Son.   | Student    |     |
 | Kim Dain      | Student    |     |
 | Jeongin Lee   | Student    |     |
 | YK            | Student    |     |

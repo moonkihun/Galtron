@@ -5,19 +5,14 @@ import pygame as pg
 import sounds
 from time import sleep
 from alien import Alien
-<<<<<<< HEAD
 import random
-=======
->>>>>>> 5dc3e8a29c487904e9840923b1cad39d4d476d55
+import random
 from settings import Settings
 import random
 
 pauseBtnState = 1
 back = False
-<<<<<<< HEAD
 
-=======
->>>>>>> 5dc3e8a29c487904e9840923b1cad39d4d476d55
 from bullet import Bullet, SpecialBullet
 from item import Item
 
@@ -360,7 +355,7 @@ def updateInvincibility(setting, screen, ship):
 def updateInvineffect(setting,screen,ship):
 	if pg.time.get_ticks() - setting.newStartTime < setting.invincibileTime:
 		image = pg.image.load('gfx/image_shield.png')
-		screen.blit(image, (ship.rect.x -7 , ship.rect.y ))            
+		screen.blit(image, (ship.rect.x -7 , ship.rect.y ))
 
 def updateAliens(setting, stats, sb, screen, ship, aliens, bullets, eBullets):
     """Update the aliens"""
@@ -492,7 +487,7 @@ def checkBulletAlienCol(setting, screen, stats, sb, ship, aliens, bullets, eBull
                 if setting.probabilityHeal+setting.probabilityTime+setting.probabilityShield<i<=setting.probabilityHeal+setting.probabilityTime+setting.probabilityShield+setting.probabilitySpeed:
                     createItem(setting, screen, stats, alien.rect.x, alien.rect.y, 4, items)
                 aliens.remove(alien)
-               
+
 
         # Increase the ultimate gauge, upto 100
         if not collisions[alien][0].isUltimate:
