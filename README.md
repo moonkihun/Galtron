@@ -1,4 +1,4 @@
-﻿# Learning OSS development through GitHub
+# Learning OSS development through GitHub
 
 
 
