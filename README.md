@@ -19,8 +19,11 @@
 | Minwoo Son	  | Student    |     |
 | Jeongin Lee   | Student.   |     |
 | Minwoo Son.   | Student    |     |
+<<<<<<< HEAD
 | Jeongin Lee   | Student.   |     |
 | Minwoo Son.   | Student    |     |
+=======
+>>>>>>> 5dc3e8a29c487904e9840923b1cad39d4d476d55
 | Kim Dain      | Student    |     |
 | Jeongin Lee   | Student    |     |
 | YK            | Student    |     |

@@ -49,4 +49,11 @@ explosion_sound = pg.mixer.Sound('sound_effects/explosion.wav')
 explosion_sound.set_volume(0.15)
 
 enemy_explosion_sound = pg.mixer.Sound('sound_effects/enemy_explosion.wav')
+<<<<<<< HEAD
 enemy_explosion_sound.set_volume(0.4)
+=======
+enemy_explosion_sound.set_volume(0.4)
+
+enemy_damaged_sound = pg.mixer.Sound('sound_effects/enemy_damaged.wav')
+enemy_damaged_sound.set_volume(0.1)
+>>>>>>> 5dc3e8a29c487904e9840923b1cad39d4d476d55

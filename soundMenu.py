@@ -49,24 +49,15 @@ def checkEvents(setting, screen, stats, sb, bMenu, ship, aliens, bullets, eBulle
 
 
 def buttonAction(stats, selectedName, setting):
-    if selectedName == 'fast':
+    if selectedName == 'loud':
         setting.gameSpeed = 'fast'
         stats.setGameLoop('settingsMenu')
-    elif selectedName == 'middle':
+    elif selectedName == 'low':
         setting.gameSpeed = 'middle'
         stats.setGameLoop('settingsMenu')
-    elif selectedName == 'slow':
-        setting.gameSpeed = 'slow'
-        stats.setGameLoop('settingsMenu')
-    elif selectedName == 'menu':
-<<<<<<< HEAD
-         stats.setGameLoop('settingsMenu')
-=======
-        stats.setGameLoop('settingsMenu')
->>>>>>> 5dc3e8a29c487904e9840923b1cad39d4d476d55
-    elif selectedName == 'quit':
-        pg.time.delay(300)
-        sys.exit()
+   
+    elif selectedName == 'back':
+       stats.setGameLoop('settingsMenu')
 
 def drawMenu(setting, screen, sb, bMenu):
     """Draw the menu and all of its elements"""
