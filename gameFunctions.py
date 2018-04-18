@@ -13,6 +13,7 @@ back = False
 from bullet import Bullet, SpecialBullet
 from item import Item
 
+
 clock = pg.time.Clock()
 FPS = 120
 reset = 0
@@ -496,14 +497,12 @@ def updateItems(setting, screen, stats, sb, ship, aliens, bullets, eBullets, ite
                     setting.speedTimeOverLap += 1
             items.remove(item)
 
+
+
 def updateSlowtime(setting):
     if setting.newItemSlowTime != 0:
         if pg.time.get_ticks() - setting.newItemSlowTime > setting.slowTime:
-            setting.alienSpeed *= 2
-            setting.alienbulletSpeed *= 2
-            setting.fleetDropSpeed *= 2
-            setting.newItemSlowTime = 0
-            sounds.slow_sound.stop()
+            setting.DynamicSettings()
 
 def updateSpeedtime(setting):
     if setting.newItemSpeedTime != 0:
