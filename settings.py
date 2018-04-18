@@ -93,17 +93,16 @@ class Settings():
             return 0.5
 
     def initDynamicSettings(self):
+        self.shipSpeed = 2.5 * self.speedVariable() +
+        self.bulletSpeed = 4 * self.speedVariable() + self.shipSpeed = 2.5
+        self.alienSpeed = 1 * self.speedVariable() + self.bulletSpeed = 4
+        self.alienbulletSpeed = 4 * self.speedVariable() + self.alienSpeed = 1
+        self.fleetDropSpeed = 5 * self.speedVariable() + self.alienbulletSpeed = 4
+        self.fleetDir = 1 * self.speedVariable() + self.fleetDropSpeed = 5
+        self.alienPoints = 10 * self.speedVariable()
+        self.Limit = 0
 
-        self.shipSpeed = 2.5
-        self.bulletSpeed = 4
-        self.alienSpeed = 1
-        self.alienbulletSpeed = 4
-        self.fleetDropSpeed = 5
-        self.fleetDir = 1
-        self.alienPoints = 10
-        self.Limit=0
 
-        
     def DynamicSettings(self):
         if self.Limit>0:
             self.alienSpeed = 1 * 1.3 * (self.Limit)
