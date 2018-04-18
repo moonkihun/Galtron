@@ -157,6 +157,11 @@ def checkKeydownEvents(event, setting, screen, stats, sb, ship, aliens, bullets,
         sounds.button_click_sound.play()
         pg.time.delay(300)
         sys.exit()
+    #BGM pause and unpause
+    elif event.key == pg.K_r:
+        pg.mixer.music.pause()
+    elif event.key == pg.K_t:
+        pg.mixer.music.unpause()
 
 
 def checkKeyupEvents(event, setting, screen, stats, ship, bullets, charged_bullets):
@@ -367,6 +372,7 @@ def updateInvincibility(setting, screen, ship):
             isurf = pg.Surface((ship.images[ship.imgCenter].get_rect().width, ship.images[ship.imgCenter].get_rect().height))
             isurf.set_alpha(200)
             screen.blit(isurf, (ship.rect.x, ship.rect.y))
+
 
 def updateInvineffect(setting, screen, ship):
     if pg.time.get_ticks() - setting.newStartTime < setting.invincibileTime:
