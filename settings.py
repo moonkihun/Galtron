@@ -1,12 +1,13 @@
 import pygame as pg
-import gameStats
+
 import utilityFunctions
 
 getInvertedRGB = utilityFunctions.getInvertedRGB
 
-class Settings():
 
+class Settings():
     """A class to store all settings for game"""
+
     def __init__(self):
         """Initialize the class"""
         self.windowCaption = 'Galtron'
@@ -50,11 +51,10 @@ class Settings():
         # Game Level
         self.gameLevel = 'normal'
 
-
         # Alien shoot speed
         self.shootTimer = 50
 
-        #item probability %
+        # item probability %
         self.probabilityHealB = 50
         self.probabilityHealI = 75
         self.probabilityHealS = 85
@@ -68,16 +68,16 @@ class Settings():
         self.probabilitySpeedI = 655
         self.probabilitySpeedS = 675
 
-        #invincibile time
+        # invincibile time
         self.invincibileTime = 3000
 
-        #item_time Slow&Speed time
+        # item_time Slow&Speed time
         self.slowTime = 4500
         self.speedTime = 9000
         self.speedTimeOverLap = 0
         self.speedStore = 0
 
-        #Player ship
+        # Player ship
         self.playerShipColor = 'gray'
 
     def invertColor(self):
@@ -102,9 +102,8 @@ class Settings():
         self.alienPoints = 10 * self.speedVariable()
         self.Limit = 0
 
-
     def DynamicSettings(self):
-        if self.Limit>0:
+        if self.Limit > 0:
             self.alienSpeed = 1 * 1.3 * (self.Limit)
             self.alienbulletSpeed = 4 * 1.3 * (self.Limit)
             self.fleetDropSpeed = 5 * 1.3 * (self.Limit)
@@ -112,8 +111,6 @@ class Settings():
             self.alienSpeed = 1 * 0.8 * (self.Limit)
             self.alienbulletSpeed = 4 * 0.8 * (self.Limit)
             self.fleetDropSpeed = 5 * 0.8 * (self.Limit)
-
-
 
     def increaseSpeed(self):
         """Increase the speed settings"""
@@ -129,7 +126,6 @@ class Settings():
         self.alienPoints = int(self.alienPoints + ((level - 1) * 10))
 
         self.alienPoints = int(self.alienPoints + self.scoreSpeedUp)
-
 
     def halfspeed(self):
         if self.Limit >= -1 and self.shipSpeed > 0 and self.bulletSpeed > 0 and self.alienSpeed > 0 and self.fleetDropSpeed > 0:

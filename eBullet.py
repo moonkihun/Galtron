@@ -5,7 +5,7 @@ from pygame.sprite import *
 class EBullet(Sprite):
     """A class to manage bullets fired from the alien"""
 
-    def __init__(self, setting, screen, alien, boss_bullet = 0):
+    def __init__(self, setting, screen, alien, boss_bullet=0):
         """Create a bullet object at the ships current position"""
         super(EBullet, self).__init__()
         self.screen = screen

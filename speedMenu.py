@@ -7,6 +7,7 @@ import sounds
 image = pg.image.load('gfx/fixsetting4.png')
 rect = image.get_rect()
 
+
 # Create a variable to change current button being selected
 def checkEvents(setting, screen, stats, sb, bMenu, ship, aliens, bullets, eBullets):
     """Respond to keypresses and mouse events."""
@@ -65,8 +66,6 @@ def buttonAction(stats, selectedName, setting):
     elif selectedName == 'quit':
         pg.time.delay(300)
         sys.exit()
-
-
 
 
 def drawMenu(setting, screen, sb, bMenu):

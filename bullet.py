@@ -20,9 +20,9 @@ class Bullet(Sprite):
         # load the bullet image and set its rect attribute
         self.image = pg.image.load('gfx/pBullet.png')
         if (self.traj == 1):
-        	self.image = pg.transform.rotate(self.image, 315)
+            self.image = pg.transform.rotate(self.image, 315)
         elif (self.traj == 2):
-        	self.image = pg.transform.rotate(self.image, 45)
+            self.image = pg.transform.rotate(self.image, 45)
         self.rect = self.image.get_rect()
         if (charge != 0):
             bulletSize = (self.rect.width * (charge + 1), self.rect.height * (charge + 1))

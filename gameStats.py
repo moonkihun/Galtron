@@ -1,5 +1,6 @@
 import json
 import os
+
 import settings
 
 
@@ -58,7 +59,7 @@ class GameStats():
         elif loop == 'levelMenu':
             self.levelMenu = True
         elif loop == 'speedMenu':
-            self.speedMenu = True    
+            self.speedMenu = True
 
     def resetStats(self):
         settingS = settings.Settings()
