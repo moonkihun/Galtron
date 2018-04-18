@@ -72,9 +72,9 @@ def checkEvents(setting, screen, stats, sb, bMenu, ship, aliens, bullets, eBulle
 def buttonAction(stats, selectedName, setting, screen, ship, aliens, bullets, eBullets, charged_bullets):
     global boss
     if selectedName == 'play':
-        checkPlayBtn(setting, screen, stats, ship, aliens, bullets, eBullets)
+        checkPlayBtn(setting, screen, stats, ship, aliens, bullets, eBullets, charged_bullets)
     elif selectedName == 'retry':
-        checkPlayBtn(setting, screen, stats, ship, aliens, bullets, eBullets)
+        checkPlayBtn(setting, screen, stats, ship, aliens, bullets, eBullets, charged_bullets)
         charged_bullets.empty()
         boss = None
     elif selectedName == 'menu':
@@ -90,7 +90,7 @@ def buttonAction(stats, selectedName, setting, screen, ship, aliens, bullets, eB
         sys.exit()
     elif selectedName == 'no':
         stats.exiton = 0
-        checkPlayBtn(setting, screen, stats, ship, aliens, bullets, eBullets)
+        checkPlayBtn(setting, screen, stats, ship, aliens, bullets, eBullets, charged_bullets)
 
 
 def checkKeydownEvents(event, setting, screen, stats, sb, ship, aliens, bullets, eBullets):
@@ -202,7 +202,7 @@ def resetGame():
     stats.saveHighScore()
 
 
-def checkPlayBtn(setting, screen, stats, ship, aliens, bullets, eBullets):
+def checkPlayBtn(setting, screen, stats, ship, aliens, bullets, eBullets, charged_bullets):
     """Start new game if playbutton is pressed"""
     if not stats.gameActive and not stats.paused:
         setting.initDynamicSettings()
@@ -371,7 +371,7 @@ def updateInvincibility(setting, screen, ship):
 def updateInvineffect(setting, screen, ship):
     if pg.time.get_ticks() - setting.newStartTime < setting.invincibileTime:
         image = pg.image.load('gfx/image_shield.png')
-        screen.blit(image, (ship.rect.x -7 , ship.rect.y ))            
+        screen.blit(image, (ship.rect.x -7 , ship.rect.y ))
 
 
 def updateAliens(setting, stats, sb, screen, ship, aliens, bullets, eBullets):
