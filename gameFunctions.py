@@ -45,8 +45,7 @@ def checkEvents(setting, screen, stats, sb, bMenu, ship, aliens, bullets, eBulle
                 sounds.select_menu.play()
                 selectedName, selectedBtn = bMenu.getSelectedButton()
                 if selectedBtn:
-                    #######################
-                    buttonAction(stats, selectedName, setting, screen, ship, aliens, bullets, eBullets)
+                    buttonAction(stats, selectedName, setting, screen, ship, aliens, bullets, eBullets, charged_bullets)
         elif event.type == pg.KEYUP:
             checkKeyupEvents(event, setting, screen, stats, ship, bullets, charged_bullets)
 
@@ -70,12 +69,13 @@ def checkEvents(setting, screen, stats, sb, bMenu, ship, aliens, bullets, eBulle
                         buttonAction(stats, mouseBtnName, setting, screen, ship, aliens, bullets, eBullets)
 
 
-def buttonAction(stats, selectedName, setting, screen, ship, aliens, bullets, eBullets):
+def buttonAction(stats, selectedName, setting, screen, ship, aliens, bullets, eBullets, charged_bullets):
     global boss
     if selectedName == 'play':
         checkPlayBtn(setting, screen, stats, ship, aliens, bullets, eBullets)
     elif selectedName == 'retry':
         checkPlayBtn(setting, screen, stats, ship, aliens, bullets, eBullets)
+        charged_bullets.empty()
         boss = None
     elif selectedName == 'menu':
         stats.setGameLoop('mainMenu')
@@ -175,8 +175,7 @@ def checkKeyupEvents(event, setting, screen, stats, ship, bullets, charged_bulle
             if (ship.chargeGauge == 100):
                 sounds.charge_shot.play()
                 newBullet = Bullet(setting, screen, ship, ship.trajectory, 3, ship.damage * 5)
-                bullets.add(newBullet)
-                #charged_bullets.add(newBullet)
+                charged_bullets.add(newBullet)
                 ship.chargeGauge = 0
             elif (50 <= ship.chargeGauge):
                 sounds.charge_shot.play()
@@ -214,6 +213,7 @@ def checkPlayBtn(setting, screen, stats, ship, aliens, bullets, eBullets):
         aliens.empty()
         bullets.empty()
         eBullets.empty()
+        charged_bullets.empty()
 
         # Create a new fleet and center the ship
         createFleet(setting, stats, screen, ship, aliens)
@@ -556,6 +556,7 @@ def checkBulletAlienCol(setting, screen, stats, sb, ship, aliens, bullets, eBull
                 if setting.probabilitySpeedI < i <= setting.probabilitySpeedS:
                     createItem(setting, screen, stats, alien.rect.x, alien.rect.y, 4.3, items)
                 aliens.remove(alien)
+
 
         # Increase the ultimate gauge, upto 100
         if not collisions[alien][0].isUltimate:
