@@ -5,9 +5,14 @@ import pygame as pg
 
 import sounds
 from alien import Alien
+import random
+import random
+from settings import Settings
+import random
 
 pauseBtnState = 1
 back = False
+
 from bullet import Bullet, SpecialBullet
 from item import Item
 
@@ -370,13 +375,20 @@ def updateInvincibility(setting, screen, ship):
         if pg.time.get_ticks() % 2 == 1:
             isurf = pg.Surface(
                 (ship.images[ship.imgCenter].get_rect().width, ship.images[ship.imgCenter].get_rect().height))
+        if pg.time.get_ticks()%2 == 1:
+            isurf = pg.Surface((ship.images[ship.imgCenter].get_rect().width,ship.images[ship.imgCenter].get_rect().height))
+            shieldimg = pg.image.load('gfx/spr_shield.png')
             isurf.set_alpha(150)
             screen.blit(isurf, (ship.rect.x, ship.rect.y))
+            screen.blit(shieldimg, (ship.rect.x-13, ship.rect.y))
         else:
             isurf = pg.Surface(
                 (ship.images[ship.imgCenter].get_rect().width, ship.images[ship.imgCenter].get_rect().height))
+            isurf = pg.Surface((ship.images[ship.imgCenter].get_rect().width,ship.images[ship.imgCenter].get_rect().height))
+            shieldimg = pg.image.load('gfx/spr_shield.png')
             isurf.set_alpha(200)
             screen.blit(isurf, (ship.rect.x, ship.rect.y))
+            screen.blit(shieldimg, (ship.rect.x-13, ship.rect.y))
 
 
 def updateShieldEffect(setting, screen, ship):
@@ -384,6 +396,10 @@ def updateShieldEffect(setting, screen, ship):
         image = pg.image.load('gfx/image_shield.png')
         screen.blit(image, (ship.rect.x - 7, ship.rect.y))
 
+def updateInvineffect(setting,screen,ship):
+	if pg.time.get_ticks() - setting.newStartTime < setting.invincibileTime:
+		image = pg.image.load('gfx/image_shield.png')
+		screen.blit(image, (ship.rect.x -7 , ship.rect.y ))
 
 def updateAliens(setting, stats, sb, screen, ship, aliens, bullets, eBullets):
     """Update the aliens"""
@@ -565,6 +581,7 @@ def checkBulletAlienCol(setting, screen, stats, sb, ship, aliens, bullets, eBull
                 if setting.probabilitySpeedI < i <= setting.probabilitySpeedS:
                     createItem(setting, screen, stats, alien.rect.x, alien.rect.y, 4.3, items)
                 aliens.remove(alien)
+
 
         # Increase the ultimate gauge, upto 100
         if not collisions[alien][0].isUltimate:
