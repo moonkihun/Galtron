@@ -374,7 +374,7 @@ def updateInvincibility(setting, screen, ship):
             screen.blit(isurf, (ship.rect.x, ship.rect.y))
 
 
-def updateInvineffect(setting, screen, ship):
+def updateShieldEffect(setting, screen, ship):
     if pg.time.get_ticks() - setting.newStartTime < setting.invincibileTime:
         image = pg.image.load('gfx/image_shield.png')
         screen.blit(image, (ship.rect.x -7 , ship.rect.y ))
@@ -745,11 +745,11 @@ def updateScreen(setting, screen, stats, sb, ship, aliens, bullets, eBullets, ch
         i.update()
         i.drawitem()
 
-    #Shield if ship is invincibile
+    # Blink if ship is invincibile
     updateInvincibility(setting, screen, ship)
 
-    #shield effect of the ship
-    updateInvineffect(setting, screen, ship)
+    # Shield effect of the ship
+    updateShieldEffect(setting, screen, ship)
 
     # Update Item_time
     updateSlowtime(setting)
