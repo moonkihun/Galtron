@@ -3,7 +3,6 @@ import pygame as pg
 # Init and load sound effects
 pg.mixer.init(44100, -16, 2, 4096)
 
-
 control_menu = pg.mixer.Sound("sound_effects/control_menu.wav")
 control_menu.set_volume(0.22)
 
@@ -53,6 +52,3 @@ enemy_explosion_sound.set_volume(0.4)
 
 enemy_damaged_sound = pg.mixer.Sound('sound_effects/enemy_damaged.wav')
 enemy_damaged_sound.set_volume(0.1)
-
-
-
